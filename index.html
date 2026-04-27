@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gafetes – Aduana Nacional</title>
+  <link rel="icon" type="image/png" href="img/favicon.ico"/>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<div class="page-header">
+  <div class="logo-wrap">
+    <img src="img/logo_aduana.png" alt="Aduana Nacional" class="logo-aduana"/>
+  </div>
+  <div class="header-text">
+    <h1>Gafetes — Aduana Nacional</h1>
+    <p class="subtitle">Sistema de Impresión</p>
+  </div>
+</div>
+
+<!-- ══ FORMULARIO ══ -->
+<div class="form-container">
+  <h2>Datos de los gafetes</h2>
+
+  <div class="gafete-block">
+    <h3>Gafete 1</h3>
+    <div class="fields-grid">
+      <div class="field-full">
+        <label>Nombre completo</label>
+        <input type="text" id="g1-nombre" value="" placeholder="Nombre Apellido"/>
+      </div>
+      <div class="field-full">
+        <label>Cargo</label>
+        <input type="text" id="g1-cargo" value="" placeholder="Cargo"/>
+      </div>
+      <div>
+        <label>Unidad / Teléfono</label>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <input type="text" id="g1-unidad" value="" placeholder="Oficina Central" style="flex:1"/>
+          <label class="fijar-label" id="fijar-label" for="unidad-fija">
+            <input type="checkbox" id="unidad-fija" onchange="toggleUnidadFija()"/> Fijar
+          </label>
+        </div>
+      </div>
+      <div>
+        <label>Número interno</label>
+        <input type="text" id="g1-interno" value="" placeholder="0000"/>
+      </div>
+    </div>
+  </div>
+
+  <div class="gafete-block">
+    <h3>Gafete 2</h3>
+    <div class="fields-grid">
+      <div class="field-full">
+        <label>Nombre completo</label>
+        <input type="text" id="g2-nombre" value="" placeholder="Nombre Apellido"/>
+      </div>
+      <div class="field-full">
+        <label>Cargo</label>
+        <input type="text" id="g2-cargo" value="" placeholder="Cargo"/>
+      </div>
+      <div>
+        <label>Unidad / Teléfono</label>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <input type="text" id="g2-unidad" value="" placeholder="Oficina Central" style="flex:1"/>
+          <label class="fijar-label" id="fijar-label-2" for="unidad-fija-2">
+            <input type="checkbox" id="unidad-fija-2" onchange="toggleUnidadFija2()"/> Fijar
+          </label>
+        </div>
+      </div>
+      <div>
+        <label>Número interno</label>
+        <input type="text" id="g2-interno" value="" placeholder="0000"/>
+      </div>
+    </div>
+  </div>
+
+  <div class="btn-row">
+    <button class="btn-clear"   onclick="limpiar()">🗑 Limpiar</button>
+    <button class="btn-preview" onclick="generarVista()">👁 Vista previa</button>
+    <button class="btn-print"   onclick="imprimir()">🖨 Imprimir</button>
+  </div>
+</div>
+
+<!-- ══ ÁREA DE IMPRESIÓN ══ -->
+<div id="preview-area">
+  <div class="btn-row">
+    <button class="btn-print"    onclick="window.print()">🖨 Imprimir ahora</button>
+    <button class="btn-download" onclick="descargarPDF()">⬇ Descargar PDF</button>
+    <button class="btn-clear"    onclick="document.getElementById('preview-area').style.display='none'">✕ Cerrar</button>
+  </div>
+  <div class="sheet" id="sheet-1"></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
